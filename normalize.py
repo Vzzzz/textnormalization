@@ -11,6 +11,7 @@ if __name__ == '__main__':
     parser.add_argument('--out', '-o', help='filename to resulted plane text file', default='normalized.txt')
     args = parser.parse_args()
     
+    # First we take list of filenames that wee need to process
     files = []
     if args.file is not None:
         files.append(args.file)
@@ -19,6 +20,8 @@ if __name__ == '__main__':
 
     normalized_text = ''
     
+    # Here we filter what file we take. os.listdir returns also directory pathes and we need to check what we work with
+    # Also we chose only *.html files 
     for f in files:
         if os.path.isfile(f) and f.endswith('html'):
             html = open(f).read()
