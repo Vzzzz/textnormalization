@@ -15,7 +15,7 @@ if __name__ == '__main__':
     if args.file is not None:
         files.append(args.file)
     else:
-        files = os.listdir(args.dir)
+        files = [args.dir + f for f in os.listdir(args.dir)]
 
     normalized_text = ''
     
